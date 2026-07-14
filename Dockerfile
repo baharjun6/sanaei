@@ -31,7 +31,7 @@ RUN curl -L https://github.com/MHSanaei/3x-ui/releases/latest/download/x-ui-linu
 RUN mkdir -p /etc/x-ui
 
 
-COPY start.sh /start.sh
+COPY supervisord.conf /etc/supervisor/supervisord.conf
 RUN chmod +x /start.sh
 
 
