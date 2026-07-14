@@ -2,26 +2,22 @@
 
 set -e
 
-
 echo "Starting Sanaei Railway"
-
 
 export NGINX_PORT=${PORT:-3000}
 
+echo "Using port: $NGINX_PORT"
 
 envsubst '${NGINX_PORT}' \
 < /etc/nginx/nginx.conf.template \
 > /etc/nginx/nginx.conf
 
 
-mkdir -p /etc/x-ui
+echo "Testing nginx"
+
+nginx -t
 
 
-if [ ! -f /etc/x-ui/config.json ]; then
-
-echo "first start"
-
-fi
-
+echo "Starting supervisor"
 
 exec supervisord -c /etc/supervisor/supervisord.conf -n
