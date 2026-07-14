@@ -24,4 +24,4 @@ echo "first start"
 fi
 
 
-exec supervisord -n
+exec supervisord -c /etc/supervisor/supervisord.conf -n
